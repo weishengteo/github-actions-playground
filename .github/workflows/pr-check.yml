@@ -11,6 +11,8 @@ jobs:
         steps:
             - name: Checkout repository
               uses: actions/checkout@v4
+              with:
+                fetch-depth: 0
             
             - name: Set up Python
               uses: actions/setup-python@v5
@@ -19,6 +21,9 @@ jobs:
             
             - name: Run Python
               run: python hello.py
+
+            - name: Check git status
+              run: git status
             
-            - name: Show changed files
-              run: git diff --name-only HEAD^ HEAD
+            - name: Show recent commits
+              run: git log --oneline -n 5
