@@ -20,7 +20,9 @@ jobs:
                 python-version: "3.12"
             
             - name: Run Python
-              run: python hello.py
+              run:  |
+                echo "Hello from Github Actions!"  
+                python hello.py
 
             - name: Check git status
               run: git status
